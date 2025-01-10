@@ -2,27 +2,31 @@ const express = require("express")
 
 const app = express()
 
-const users =[{
-    name: "John", 
-    kidneys:[{
-        healthy:false
-    }]
-}]
-
-app.get("/", function(req, res){
-    const johnKidneys = users[0].kidneys;
-    const numberOfKidneys= kidneys.lenght;
-    let numberOfHealthyKidneys =0;
-
+app.get("/sum/:a/:b", function(req, res){
+     const a= parseInt(req.params.a);
+    const b= parseInt(req.query.b);
+    
+    res.json({ans: a+b});
 })
 
-app.post("/", function(req, res){
-    const isHealthy = req. body.isHealthy;
-    users[0]. kidneys. push({
-        healthy: isHealthy
-    })
-    res.json({
-        msg:"Done"
-    })
+app.get("/multiply", function(req, res){
+    const a= (req.query.a);
+    const b= (req.query.b);
+    
+    res.json({ans: a*b});
+})
+
+app.get("/divide", function(req, res){
+    const a= req.query.a;
+    const b= req.query.b;
+    
+    res.json({ans: a/b});
+})
+
+app.get("/subtract", function(req, res){
+    const a= req.query.a;
+    const b= req.query.b;
+    
+    res.json({ans: a-b});
 })
 app.listen(3000)

@@ -4,7 +4,7 @@ const app = express()
 
 app.get("/sum/:a/:b", function(req, res){
      const a= parseInt(req.params.a);
-    const b= parseInt(req.query.b);
+    const b= parseInt(req.params.b);
     
     res.json({ans: a+b});
 })

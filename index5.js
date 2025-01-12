@@ -4,10 +4,11 @@ const express = require("express")
 const cors= require("cors")
 const app= express()
 
-//when you're sending an post req it will reach req.body but it wont get stored
-//in the const a or b because you didn't write the express middleware.
+app.use(express.json())/*When you use app.use(express.json()), Express adds middleware that: 
+                         Reads the raw JSON string from the request body.
+                         Parses (converts) the string into a JavaScript object.
+                         Attaches the resulting object to req.body. */
 
-app.use(express.json())
 app.use(cors())
 app.post("/sum", function(req, res){
     console.log(req.body)

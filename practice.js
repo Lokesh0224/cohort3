@@ -12,6 +12,10 @@ const logger=(req, res, next)=>{
 }
 
 const users=[]
+
+app.get("/", (req, res)=>{
+    res.sendFile(__dirname + "/Frontend/index.html") //__dirname is a globla name by default which holds the current directory
+})
 app.post("/signup", logger, (req, res)=>{
     const username= req.body.username
     const password = req.body.password
